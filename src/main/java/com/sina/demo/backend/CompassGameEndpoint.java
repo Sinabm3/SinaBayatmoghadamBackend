@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.stream.Stream;
 
 @RestController
-@RequestMapping("/api/compassGame")
+@RequestMapping("/compassGame")
 public class CompassGameEndpoint {
 
     private final CompassGameService compassGameService;
