@@ -1,7 +1,7 @@
-package com.sina.demo.backend;
+package com.sina.demo.endpoint;
 
-import com.sina.demo.backend.dto.CompassGameDto;
-import com.sina.demo.backend.dto.InfoCompassGameDto;
+import com.sina.demo.endpoint.dto.CompassGameDto;
+import com.sina.demo.endpoint.dto.InfoCompassGameDto;
 import com.sina.demo.service.CompassGameService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

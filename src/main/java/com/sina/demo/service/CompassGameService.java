@@ -1,8 +1,8 @@
 package com.sina.demo.service;
 
-import com.sina.demo.backend.dto.CompassGameDto;
-import com.sina.demo.backend.dto.InfoCompassGameDto;
-import com.sina.demo.backend.dto.QuestionDto;
+import com.sina.demo.endpoint.dto.CompassGameDto;
+import com.sina.demo.endpoint.dto.InfoCompassGameDto;
+import com.sina.demo.endpoint.dto.QuestionDto;
 import com.sina.demo.entity.CompassGame;
 import com.sina.demo.entity.Question;
 import com.sina.demo.repository.CompassGameRepository;

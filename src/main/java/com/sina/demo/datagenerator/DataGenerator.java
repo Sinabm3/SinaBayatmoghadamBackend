@@ -3,7 +3,6 @@ package com.sina.demo.datagenerator;
 import com.sina.demo.entity.CompassGame;
 import com.sina.demo.entity.Question;
 import com.sina.demo.repository.CompassGameRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +12,6 @@ import java.util.HashSet;
 public class DataGenerator implements CommandLineRunner {
 
     private final CompassGameRepository compassGameRepository;
-    @Autowired
     public DataGenerator(CompassGameRepository compassGameRepository) {
         this.compassGameRepository = compassGameRepository;
     }

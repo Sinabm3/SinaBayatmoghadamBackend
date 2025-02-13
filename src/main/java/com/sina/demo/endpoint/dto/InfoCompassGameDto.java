@@ -1,4 +1,4 @@
-package com.sina.demo.backend.dto;
+package com.sina.demo.endpoint.dto;
 
 public record InfoCompassGameDto (Long id, String name, String horizontalAxisPositiveName,
                                  String horizontalAxisNegativeName,

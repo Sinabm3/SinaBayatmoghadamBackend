@@ -1,4 +1,4 @@
-package com.sina.demo.backend.dto;
+package com.sina.demo.endpoint.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
