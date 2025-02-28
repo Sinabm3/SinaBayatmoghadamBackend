@@ -19,11 +19,21 @@ public class CompassGame {
     private String verticalAxisPositiveName;
     @Column (nullable = false, length = 100)
     private String verticalAxisNegativeName;
+    @Column(nullable = false, length = 100)
+    private String password;
     @OneToMany(mappedBy = "compassGame", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Question> questions;
 
     public Long getId() {
         return id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setId(Long id) {

@@ -4,12 +4,14 @@ import com.sina.demo.entity.CompassGame;
 import com.sina.demo.entity.Question;
 import com.sina.demo.repository.CompassGameRepository;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
 
 @Component
 public class DataGenerator implements CommandLineRunner {
+    String defaultPassword = "21321321";
 
     private final CompassGameRepository compassGameRepository;
     public DataGenerator(CompassGameRepository compassGameRepository) {
@@ -28,6 +30,8 @@ public class DataGenerator implements CommandLineRunner {
         defaultGame.setHorizontalAxisPositiveName("Meritocracy");
         defaultGame.setVerticalAxisNegativeName("Collectivism");
         defaultGame.setVerticalAxisPositiveName("Individualism");
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        defaultGame.setPassword(encoder.encode(defaultPassword));
         defaultGame.setQuestions(new HashSet<>());
 
         /*
@@ -223,6 +227,7 @@ public class DataGenerator implements CommandLineRunner {
         confidenceGame.setHorizontalAxisNegativeName("Low Emotional Confidence");
         confidenceGame.setVerticalAxisPositiveName("High Logical Confidence");
         confidenceGame.setVerticalAxisNegativeName("Low Logical Confidence");
+        defaultGame.setPassword(encoder.encode(defaultPassword));
         confidenceGame.setQuestions(new HashSet<>());
         confidenceGame.getQuestions().add(new Question(
                 null,
