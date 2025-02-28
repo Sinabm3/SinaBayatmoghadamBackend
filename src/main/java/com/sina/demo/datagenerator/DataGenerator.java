@@ -34,10 +34,7 @@ public class DataGenerator implements CommandLineRunner {
         defaultGame.setPassword(encoder.encode(defaultPassword));
         defaultGame.setQuestions(new HashSet<>());
 
-        /*
-         * This interprets each question's "empathyAxis" or "collectivistAxis" from your original data
-         * to decide isHorizontalQuestion (true/false) and axisPower (+1 or -1).
-         */
+
 
         // #1 empathyAxis = 1 => horizontal => +1
         defaultGame.getQuestions().add(new Question(

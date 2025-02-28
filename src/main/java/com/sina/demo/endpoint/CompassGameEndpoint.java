@@ -33,7 +33,18 @@ public class CompassGameEndpoint {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void create (@Valid @RequestBody CompassGameDto compassGameDto){
-        compassGameService.create(compassGameDto);
+    public Long create (@Valid @RequestBody CompassGameDto compassGameDto){
+       return compassGameService.create(compassGameDto);
     }
+
+    @DeleteMapping("/{id}")
+    public void delete (@PathVariable Long id, @RequestParam String password){
+        compassGameService.delete(id, password);
+    }
+
+    @GetMapping("/search")
+    public Stream<InfoCompassGameDto> search(@RequestParam String name){
+        return compassGameService.search(name);
+    }
+
 }

@@ -29,6 +29,10 @@ public record CompassGameDto(
         @Size(max = 100, message = "Vertical axis negative name cannot exceed 100 characters")
         String verticalAxisNegativeName,
 
+        @NotBlank
+        @Size(max = 100, message = "Password cannot exceed 100 characters")
+        String password,
+
         @NotNull(message = "questionDtos cannot be null")
         @Size(min = 1, message = "questionDtos cannot be empty")
         Set<QuestionDto> questionDtos
