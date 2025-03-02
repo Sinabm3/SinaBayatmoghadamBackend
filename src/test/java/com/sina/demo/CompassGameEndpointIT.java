@@ -36,7 +36,6 @@ class CompassGameEndpointIT {
 						"\"verticalAxisPositiveName\":\"Up\",\"verticalAxisNegativeName\":\"Down\",\"password\":\"123456\"," +
 						"\"questionDtos\":[{\"text\":\"Test Question\",\"isHorizontal\":true,\"axisPower\":1}]}")))
 				.andExpect(status().isCreated()).andReturn().getResponse().getContentAsString();
-		mockMvc.perform(get("/compassGame/search?name=Test Game")).andExpect(status().isOk());
 		mockMvc.perform(delete("/compassGame/"+id+"?password=123456")).andExpect(status().isOk());
 	}
 

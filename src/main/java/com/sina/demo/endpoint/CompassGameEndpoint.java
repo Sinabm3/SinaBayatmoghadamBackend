@@ -37,6 +37,11 @@ public class CompassGameEndpoint {
        return compassGameService.create(compassGameDto);
     }
 
+    @PutMapping
+    public Long edit(@Valid @RequestBody CompassGameDto compassGameDto, @RequestParam String password){
+        return compassGameService.edit(compassGameDto, password);
+    }
+
     @DeleteMapping("/{id}")
     public void delete (@PathVariable Long id, @RequestParam String password){
         compassGameService.delete(id, password);
