@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -76,7 +75,6 @@ public class CompassGameService {
                 entity.getHorizontalAxisPositiveName(), entity.getHorizontalAxisNegativeName(),
                 entity.getVerticalAxisPositiveName(), entity.getVerticalAxisNegativeName()));
     }
-
     public Long edit(CompassGameDto compassGameDto, String password) {
         compassGameRepository.findById(compassGameDto.id()).ifPresentOrElse(compassGame -> {
             if(encoder.matches(password, compassGame.getPassword())){
@@ -85,7 +83,8 @@ public class CompassGameService {
                 compassGame.setHorizontalAxisNegativeName(compassGameDto.horizontalAxisNegativeName());
                 compassGame.setVerticalAxisPositiveName(compassGameDto.verticalAxisPositiveName());
                 compassGame.setVerticalAxisNegativeName(compassGameDto.verticalAxisNegativeName());
-                compassGame.setQuestions(compassGameDto.questionDtos().stream().map(questionDto -> new Question(
+                compassGame.getQuestions().clear();
+                compassGame.getQuestions().addAll(compassGameDto.questionDtos().stream().map(questionDto -> new Question(
                         questionDto.id(), questionDto.text(), questionDto.isHorizontal(), questionDto.axisPower(), compassGame
                 )).collect(Collectors.toSet()));
                 compassGameRepository.save(compassGame);
