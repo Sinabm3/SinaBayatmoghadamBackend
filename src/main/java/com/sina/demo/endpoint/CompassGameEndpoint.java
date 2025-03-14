@@ -31,7 +31,7 @@ public class CompassGameEndpoint {
         return compassGameService.getCompassGameById(id);
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/check-password/{id}")
     public void checkPassword(@PathVariable Long id, @RequestParam String password){
         compassGameService.checkPassword(id, password);
     }
