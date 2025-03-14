@@ -31,6 +31,11 @@ public class CompassGameEndpoint {
         return compassGameService.getCompassGameById(id);
     }
 
+    @GetMapping(value = "/{id}")
+    public void checkPassword(@PathVariable Long id, @RequestParam String password){
+        compassGameService.checkPassword(id, password);
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Long create (@Valid @RequestBody CompassGameDto compassGameDto){

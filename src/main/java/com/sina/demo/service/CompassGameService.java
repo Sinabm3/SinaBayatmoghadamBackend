@@ -96,4 +96,14 @@ public class CompassGameService {
         });
         return compassGameDto.id();
     }
+
+    public void checkPassword(Long id, String password) {
+        compassGameRepository.findById(id).ifPresentOrElse(compassGame -> {
+            if(!encoder.matches(password, compassGame.getPassword())){
+                throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,"Password is incorrect!");
+            }
+        }, () -> {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Game not found!");
+        });
+    }
 }
