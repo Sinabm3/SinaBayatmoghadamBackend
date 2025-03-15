@@ -42,9 +42,10 @@ public class CompassGameEndpoint {
        return compassGameService.create(compassGameDto);
     }
 
-    @PutMapping
-    public Long edit(@Valid @RequestBody CompassGameDto compassGameDto, @RequestParam String password){
-        return compassGameService.edit(compassGameDto, password);
+    @PutMapping("/{id}")
+    public Long edit(@PathVariable Long id, @Valid @RequestBody CompassGameDto compassGameDto,
+                     @RequestParam String password){
+        return compassGameService.edit(id,compassGameDto, password);
     }
 
     @DeleteMapping("/{id}")

@@ -56,8 +56,9 @@ class CompassGameEndpointIT {
 		QuestionDto questionDto = new QuestionDto(null, "bruh", true, 1);
 		HashSet<QuestionDto> questionDtos = new HashSet<>();
 		questionDtos.add(questionDto);
-		mockMvc.perform(put("/compassGame"+"?password=123456").contentType("application/json").
-						content(objectMapper.writeValueAsString(new CompassGameDto(Long.parseLong(id),"Test Game",
+		mockMvc.perform(put("/compassGame/"
+						+id+"?password=123456").contentType("application/json").
+						content(objectMapper.writeValueAsString(new CompassGameDto(null,"Test Game",
 								"Right","Left",
 								"Up","Down","123456",
 								questionDtos))))

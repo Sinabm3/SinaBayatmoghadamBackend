@@ -75,10 +75,11 @@ public class CompassGameService {
                 entity.getHorizontalAxisPositiveName(), entity.getHorizontalAxisNegativeName(),
                 entity.getVerticalAxisPositiveName(), entity.getVerticalAxisNegativeName()));
     }
-    public Long edit(CompassGameDto compassGameDto, String password) {
-        compassGameRepository.findById(compassGameDto.id()).ifPresentOrElse(compassGame -> {
+    public Long edit(Long id,CompassGameDto compassGameDto, String password) {
+        compassGameRepository.findById(id).ifPresentOrElse(compassGame -> {
             if(encoder.matches(password, compassGame.getPassword())){
                 compassGame.setName(compassGameDto.name());
+                compassGame.setPassword(encoder.encode(compassGameDto.password()));
                 compassGame.setHorizontalAxisPositiveName(compassGameDto.horizontalAxisPositiveName());
                 compassGame.setHorizontalAxisNegativeName(compassGameDto.horizontalAxisNegativeName());
                 compassGame.setVerticalAxisPositiveName(compassGameDto.verticalAxisPositiveName());
